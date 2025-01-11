@@ -2,5 +2,5 @@ PyEmail
 datetime
 requests
 Faker
-fake-useragent
+fake_useragent
 BeautifulSoup4
