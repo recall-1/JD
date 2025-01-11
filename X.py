@@ -120,13 +120,13 @@ import datetime
 global Var
 Var = True
 t = get_81_code()
+r()
 code = get_81_code(html_page(t))
+r()
 B__, N__ = html_work_trend(code)
 
 if Var:
     now = datetime.datetime.now() + datetime.timedelta(hours=8)
     B = f"{B__}  {now.strftime('%Y-%m-%d')}"
     sendMail(B, N__, '2241007756@qq.com')
-else:
-    pass
 
