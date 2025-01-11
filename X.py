@@ -102,9 +102,9 @@ def html_work_trend(text):
     time = title_tags.find_all("span")
     time_test = str(re.compile('''<span>(.*?)</span>''', re.S).findall(str(time))[0])
     if data_(time_test):
-        t = "有新工作动态——军队人才网"
+        t = "有新工作动态--军队人才网"
     else:
-        t = "无新工作动态——军队人才网"
+        t = "军队人才网"
     for i, j in zip(tags, time):
         HTML_text = i.text.replace("\n", "").replace("\t", "")
         URL = str(re.compile('''href="(.*?)"''', re.S).findall(str(i))[0])
