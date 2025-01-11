@@ -102,9 +102,11 @@ def html_work_trend(text):
     time = title_tags.find_all("span")
     time_test = str(re.compile('''<span>(.*?)</span>''', re.S).findall(str(time))[0])
     if data_(time_test):
-        t = "有新工作动态--军队人才网"
+        t = "有新工作动态——军队人才网"
     else:
-        t = "军队人才网"
+        global Var
+        Var = False
+        return "无新工作动态——军队人才网", 0
     for i, j in zip(tags, time):
         HTML_text = i.text.replace("\n", "").replace("\t", "")
         URL = str(re.compile('''href="(.*?)"''', re.S).findall(str(i))[0])
@@ -115,13 +117,16 @@ def html_work_trend(text):
 
 import datetime
 
+global Var
+Var = True
 t = get_81_code()
-r()
 code = get_81_code(html_page(t))
-r()
 B__, N__ = html_work_trend(code)
-r()
-now = datetime.datetime.now() + datetime.timedelta(hours=8)
-B = f"{B__}  {now.strftime('%Y-%m-%d')}"
-sendMail(B, N__, '2241007756@qq.com')
+
+if Var:
+    now = datetime.datetime.now() + datetime.timedelta(hours=8)
+    B = f"{B__}  {now.strftime('%Y-%m-%d')}"
+    sendMail(B, N__, '2241007756@qq.com')
+else:
+    pass
 
