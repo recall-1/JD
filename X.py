@@ -116,11 +116,11 @@ def html_work_trend(text):
 import datetime
 
 t = get_81_code()
-r()
+# r()
 code = get_81_code(html_page(t))
-r()
+# r()
 B__, N__ = html_work_trend(code)
-r()
+# r()
 now = datetime.datetime.now() + datetime.timedelta(hours=8)
 B = f"{B__}  {now.strftime('%Y-%m-%d')}"
 sendMail(B, N__, '2241007756@qq.com')
