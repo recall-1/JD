@@ -3,5 +3,4 @@ datetime
 requests
 Faker
 fake_useragent
-re
 BeautifulSoup4
